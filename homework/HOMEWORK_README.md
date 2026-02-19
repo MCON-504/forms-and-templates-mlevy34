@@ -97,7 +97,7 @@ If no students exist:
 
 ---
 
-# 💡 Example Behavior
+#  Example Behavior
 
 User submits:
 
