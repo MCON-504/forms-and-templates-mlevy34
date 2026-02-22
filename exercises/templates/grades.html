@@ -2,4 +2,13 @@
 
 {% block content %}
     <h1>TODO: Complete Part 2</h1>
+{% if score >= 90 %}
+<p>Excellent</p>
+{% elif score >= 70 %}
+<p>Good Job</p>
+{% else %}
+<p>Needs improvement</p>
+{% endif %}
+
+
 {% endblock %}
