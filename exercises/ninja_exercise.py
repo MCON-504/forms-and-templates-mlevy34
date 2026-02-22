@@ -38,7 +38,7 @@ def form_demo():
             error = "Username is required."
             username = None
 
-    return render_template("form.html", error=error, username=username)
+    return render_template("form.html", error=error, submitted_name=username)
 
 
 if __name__ == "__main__":

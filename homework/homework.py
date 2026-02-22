@@ -24,12 +24,24 @@ def add_student():
 
         # TODO:
         # 1. Validate name
+        if not name or name.strip() == "":
+            error = "Name cannot be empty."
         # 2. Validate grade is number
+        try:
+            grade = float(grade)
+        except ValueError:
+            error = "Grade must be a number."
         # 3. Validate grade range 0–100
+        if grade < 0 or grade > 100:
+            error = "Grade must be between 0 and 100"
+        if error is not None:
+            return render_template("add.html", error=error)
         # 4. Add to students list as dictionary
+        students.append({"Name" : name, "Grade" : grade})
         # 5. Redirect to /students
+        return redirect(url_for("display_students"))
 
-        pass
+
 
     return render_template("add.html", error=error)
 
@@ -39,6 +51,7 @@ def add_student():
 # ---------------------------------
 @app.route("/students")
 def display_students():
+
     return render_template("students.html", students=students)
 
 
@@ -50,11 +63,22 @@ def summary():
     # TODO:
     # Calculate:
     # - total students
+    total = len(students)
     # - average grade
+    grades = []
+    total_grades = 0
+    count = 0
+    for student in students:
+        total_grades += student["Grade"]
+        count += 1
+        grades.append(student["Grade"])
+    avg = float(total_grades/count)
     # - highest grade
+    highest = max(grades)
     # - lowest grade
+    lowest = min(grades)
 
-    return render_template("summary.html")
+    return render_template("summary.html",students=students, total=total, avg=avg, highest=highest, lowest=lowest)
 
 
 if __name__ == "__main__":

@@ -11,7 +11,7 @@ app = Flask(__name__)
 def create_templates():
     os.makedirs("demo/templates", exist_ok=True)
 
-    base_template = """<!DOCTYPE html>
+    base_template = '''<!DOCTYPE html>
 <html>
 <head>
     <title>Jinja2 Demo</title>
@@ -43,7 +43,7 @@ def create_templates():
 
 </body>
 </html>
-"""
+'''
 
     home_template = """{% extends "base.html" %}
 {% block content %}
