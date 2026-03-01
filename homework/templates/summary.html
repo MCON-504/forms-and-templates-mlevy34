@@ -4,5 +4,14 @@
     <h2>Summary</h2>
 
     <!-- TODO: Display summary statistics -->
+    {% if students|length == 0 %}
+        <p>No Students</p>
+    {% else %}
+    <p>Here is the summary:</p>
+    {% endif %}
+    <p>Total Students: {{total}}</p>
+    <p>Grade Average: {{avg}}</p>
+    <p>Highest Grade: {{highest}}</p>
+    <p>Lowest Grade: {{lowest}}</p>
 
 {% endblock %}

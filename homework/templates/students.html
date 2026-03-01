@@ -15,10 +15,19 @@
 
             {% for student in students %}
                 <tr>
-                    <td>{{ student.name }}</td>
-                    <td>{{ student.grade }}</td>
+                    <td>{{ student["Name"] }}</td>
+                    <td>{{ student["Grade"] }}</td>
                     <td>
                         <!-- TODO: Add conditional comments -->
+                        {% if student["Grade"] >= 90 %}
+                        <p>Excellent</p>
+                        {% elif student["Grade"] >= 70 %}
+                        <p>Good</p>
+                        {% elif student["Grade"] >= 60 %}
+                        <p>Passing</p>
+                        {% else %}
+                        <p>Needs Improvement</p>
+                        {% endif %}
                     </td>
                 </tr>
             {% endfor %}
